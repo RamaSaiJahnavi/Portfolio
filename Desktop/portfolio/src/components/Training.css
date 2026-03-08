@@ -1,0 +1,55 @@
+.training {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
+}
+
+.training h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e3a5f;
+  margin-bottom: 3rem;
+}
+
+.training-card {
+  background: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.training-card h3 {
+  color: #4f46e5;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.training-duration {
+  color: #6366f1;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.training-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.training-details li {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.training-details li::before {
+  content: '✓';
+  color: #4f46e5;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}

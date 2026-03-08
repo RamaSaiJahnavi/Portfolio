@@ -1,0 +1,134 @@
+.achievements {
+  padding: 4rem 2rem;
+  background: transparent;
+}
+
+.achievements h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #FFFFFF;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Algerian', 'Times New Roman', serif;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid rgba(166, 139, 124, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateX(5px);
+}
+
+.achievement-card h3 {
+  color: #a68b7c;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.achievement-desc {
+  color: #E5E7EB;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.achievement-date {
+  color: #a68b7c;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ---- Responsive Design ---- */
+@media (max-width: 992px) {
+  .achievements {
+    padding: 3rem 1.5rem;
+  }
+  
+  .achievements h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .achievement-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements {
+    padding: 2.5rem 1rem;
+  }
+  
+  .achievements h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .achievement-card {
+    padding: 1.1rem 1.25rem;
+  }
+  
+  .achievement-card h3 {
+    font-size: 1.05rem;
+  }
+  
+  .achievement-desc {
+    font-size: 0.95rem;
+  }
+  
+  .achievement-date {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements {
+    padding: 2rem 0.8rem;
+  }
+  
+  .achievements h2 {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .achievement-card {
+    padding: 1rem;
+    border-left-width: 3px;
+  }
+  
+  .achievement-card h3 {
+    font-size: 1rem;
+  }
+  
+  .achievement-desc {
+    font-size: 0.9rem;
+  }
+}

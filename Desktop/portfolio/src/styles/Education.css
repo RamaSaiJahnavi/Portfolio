@@ -1,0 +1,165 @@
+.education {
+  padding: 4rem 2rem;
+  background: transparent;
+}
+
+.education h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #FFFFFF;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Algerian', 'Times New Roman', serif;
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 4px solid rgba(166, 139, 124, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateX(-5px);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.education-header h3 {
+  color: #a68b7c;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 800;
+}
+
+.education-location {
+  color: #E5E7EB;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.education-degree {
+  color: #E5E7EB;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.education-details {
+  color: #E5E7EB;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.education-duration {
+  color: #a68b7c;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ---- Responsive Design ---- */
+@media (max-width: 992px) {
+  .education {
+    padding: 3rem 1.5rem;
+  }
+  
+  .education h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .education-card {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .education-header h3 {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .education {
+    padding: 2.5rem 1rem;
+  }
+  
+  .education h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
+  
+  .education-timeline {
+    gap: 1.25rem;
+  }
+  
+  .education-card {
+    padding: 1.1rem 1.25rem;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .education-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .education-location {
+    font-size: 0.85rem;
+  }
+  
+  .education-degree,
+  .education-details {
+    font-size: 0.95rem;
+  }
+  
+  .education-duration {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education {
+    padding: 2rem 0.8rem;
+  }
+  
+  .education h2 {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .education-card {
+    padding: 1rem;
+    border-left-width: 3px;
+  }
+  
+  .education-header h3 {
+    font-size: 1rem;
+  }
+  
+  .education-degree,
+  .education-details {
+    font-size: 0.9rem;
+  }
+}

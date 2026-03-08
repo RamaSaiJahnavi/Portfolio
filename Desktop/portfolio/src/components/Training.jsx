@@ -1,0 +1,36 @@
+import '../styles/Training.css'
+
+function Training() {
+  const trainingItems = [
+    {
+      title: 'From Data to Decisions: A Hands-On Approach to Data Science',
+      duration: 'Jun\'25 – Jul\'25',
+      details: [
+        'Power BI: Developed interactive dashboards, reports, and visualizations for data-driven insights.',
+        'Machine Learning: Implemented ML algorithms using Python and libraries like Scikit-learn for predictive analysis.',
+        'SQL: Proficient in querying, data manipulation, and database management.',
+        'Excel: Advanced skills in Pivot Tables, Charts, Data Analysis Tools, and automation for business analytics.'
+      ]
+    }
+  ]
+
+  return (
+    <div className="training">
+      <h2>Training</h2>
+      {trainingItems.map((item, index) => (
+        <div key={index} className="training-card">
+          <h3>{item.title}</h3>
+          <p className="training-duration">{item.duration}</p>
+          <ul className="training-details">
+            {item.details.map((detail, i) => (
+              <li key={i}>{detail}</li>
+            ))}
+          </ul>
+          <a href="#" className="training-link" target="_blank" rel="noopener noreferrer">View Certificate</a>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default Training
