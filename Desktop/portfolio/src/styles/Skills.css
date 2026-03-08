@@ -104,6 +104,25 @@
   z-index: 1;
 }
 
+/* Mobile: Horizontal scrollable skills */
+@media (max-width: 480px) {
+  .skills-categories-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+  
+  .skill-category-section {
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+}
+
 /* ---- Category Section ---- */
 .skill-category-section {
   position: relative;
