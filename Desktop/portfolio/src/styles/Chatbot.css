@@ -222,4 +222,45 @@
     width: calc(100vw - 40px);
     right: -10px;
   }
+  
+  .chatbot-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .chatbot-messages {
+    padding: 0.8rem;
+  }
+  
+  .chat-message {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+  }
+  
+  .chatbot-input {
+    padding: 0.8rem;
+  }
+  
+  .chatbot-input input {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .chatbot-input button {
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .chatbot-window {
+    width: calc(100vw - 30px);
+  }
+  
+  .chatbot-header h3 {
+    font-size: 0.85rem;
+  }
+  
+  .chat-message {
+    font-size: 0.8rem;
+    padding: 0.65rem 0.8rem;
+  }
 }

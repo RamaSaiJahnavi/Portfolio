@@ -204,4 +204,43 @@
   .feedback-container {
     bottom: 85px;
   }
+  
+  .feedback-header h3 {
+    font-size: 0.9rem;
+  }
+  
+  .feedback-content {
+    padding: 0.8rem;
+  }
+  
+  .feedback-message {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
+  }
+  
+  .feedback-input input,
+  .feedback-input textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .feedback-submit button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .feedback-window {
+    width: calc(100vw - 30px);
+  }
+  
+  .feedback-header h3 {
+    font-size: 0.85rem;
+  }
+  
+  .feedback-message {
+    font-size: 0.8rem;
+    padding: 0.65rem 0.8rem;
+  }
 }

@@ -561,6 +561,7 @@
   
   .hero h1 {
     font-size: 1.6rem;
+    line-height: 1.3;
   }
   
   .hero-subtitle {
@@ -572,13 +573,32 @@
     height: 230px;
   }
   
+  .contact-info {
+    margin-left: 0;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
   .contact-item {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+  
+  .icon {
+    width: 14px;
+    height: 14px;
   }
   
   .magnetic-btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+  }
+  
+  .subtitle-wrapper {
+    margin-bottom: 1.5rem;
   }
 }
 

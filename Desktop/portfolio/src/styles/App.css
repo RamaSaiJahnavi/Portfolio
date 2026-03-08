@@ -142,6 +142,45 @@ footer p {
   }
 }
 
+/* Mobile Optimization - Enhanced for better readability and fitted layout */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .navbar {
+    padding: 0.75rem;
+  }
+  
+  .nav-brand {
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  main {
+    padding-top: 120px;
+  }
+  
+  section {
+    scroll-margin-top: 120px;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
+}
+
 /* Horizontal Gradient Animation for All Sections */
 @keyframes horizontalGradient {
   0% { background-position: 0% 50%; }

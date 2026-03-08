@@ -129,3 +129,13 @@
     font-size: 0.95rem;
   }
 }
+
+@media (max-width: 360px) {
+  .certifications h2 {
+    font-size: 1.5rem;
+  }
+  
+  .certification-card h3 {
+    font-size: 0.9rem;
+  }
+}

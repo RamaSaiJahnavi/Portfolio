@@ -549,23 +549,63 @@
   }
   
   .filter-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
   
   .project-card {
-    min-width: 300px;
+    min-width: 280px;
   }
   
   .card-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .project-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
   
-  .project-points li {
+  .project-description {
     font-size: 0.85rem;
+  }
+  
+  .tool-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+  
+  .project-link {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .projects-section {
+    padding: 2.5rem 0.8rem;
+  }
+  
+  .projects-title {
+    font-size: 1.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .project-card {
+    min-width: 260px;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.05rem;
+  }
+  
+  .project-description {
+    font-size: 0.8rem;
   }
 }
