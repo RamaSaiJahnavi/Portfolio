@@ -156,8 +156,25 @@ main {
   padding-top: 60px;
 }
 
+/* All sections smooth scroll and padding */
 section {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 70px; /* Default for all sections */
+}
+
+/* Specific section IDs for better targeting */
+#home,
+#skills,
+#projects,
+#training,
+#certifications,
+#achievements,
+#education {
+  scroll-margin-top: 70px;
+}
+
+/* Projects section specific styling */
+.projects-section {
+  scroll-margin-top: 70px;
 }
 
 /* Footer */
@@ -281,7 +298,15 @@ footer p {
     padding-top: 60px; /* Further reduced - content starts immediately after navbar */
   }
   
-  section {
+  section,
+  #home,
+  #skills,
+  #projects,
+  #training,
+  #certifications,
+  #achievements,
+  #education,
+  .projects-section {
     scroll-margin-top: 70px; /* Increased to ensure heading is visible below navbar */
     padding-left: 0.8rem !important;
     padding-right: 0.8rem !important;
@@ -324,7 +349,15 @@ footer p {
     padding-top: 55px; /* Reduced for compact screens */
   }
   
-  section {
+  section,
+  #home,
+  #skills,
+  #projects,
+  #training,
+  #certifications,
+  #achievements,
+  #education,
+  .projects-section {
     scroll-margin-top: 65px; /* Adjusted for smaller navbar */
   }
 }

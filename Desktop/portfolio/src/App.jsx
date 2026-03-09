@@ -36,16 +36,24 @@ function App() {
       setIsScrolled(window.scrollY > 50)
     }
 
-    // Smooth scroll handler for anchor links
+    // Enhanced smooth scroll handler for anchor links with proper offset
     const handleAnchorClick = (e) => {
       e.preventDefault()
       const targetId = e.currentTarget.getAttribute('href').substring(1)
       const targetElement = document.getElementById(targetId)
+      
       if (targetElement) {
-        const navbarHeight = 65 // Approximate navbar height
+        // Calculate navbar height dynamically
+        const navbar = document.querySelector('.navbar')
+        const navbarHeight = navbar ? navbar.offsetHeight : 65
+        
+        // Get element position relative to viewport
         const elementPosition = targetElement.getBoundingClientRect().top
+        
+        // Calculate final position with offset
         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight
         
+        // Smooth scroll to position
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -57,12 +65,16 @@ function App() {
       }
     }
 
+    // Attach click handlers to all navigation links
     const navLinks = document.querySelectorAll('.nav-links a')
     navLinks.forEach(link => {
       link.addEventListener('click', handleAnchorClick)
     })
 
+    // Listen for scroll events
     window.addEventListener('scroll', handleScroll)
+    
+    // Cleanup event listeners
     return () => {
       window.removeEventListener('scroll', handleScroll)
       navLinks.forEach(link => {
