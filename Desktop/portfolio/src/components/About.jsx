@@ -6,28 +6,26 @@ function About() {
   const observerRef = useRef(null)
 
   useEffect(() => {
-    // Intersection Observer for entrance animations - triggers every time
+    // Viewport-based Intersection Observer with reset on exit
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Remove the class first to re-trigger animation
-            entry.target.classList.remove('animate-in')
-            // Force reflow
-            void entry.target.offsetWidth
-            // Add the class to trigger animation
-            setTimeout(() => {
+            // Element entered viewport - trigger animation
+            requestAnimationFrame(() => {
               entry.target.classList.add('animate-in')
-            }, 50)
+            })
           } else {
-            // Remove animation when out of view
-            entry.target.classList.remove('animate-in')
+            // Element left viewport - reset animation for replay
+            requestAnimationFrame(() => {
+              entry.target.classList.remove('animate-in')
+            })
           }
         })
       },
       {
-        threshold: 0.1,
-        rootMargin: '-50px'
+        threshold: 0.15, // Trigger when 15% visible
+        rootMargin: '0px 0px -100px 0px' // Start animating 100px before entering
       }
     )
 

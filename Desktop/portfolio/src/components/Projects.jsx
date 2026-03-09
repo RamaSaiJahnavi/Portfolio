@@ -127,32 +127,43 @@ function Projects() {
     card.style.setProperty('--specular-y', '50%')
   }, [])
 
-  // Intersection Observer for scroll animations
+  // Intersection Observer for viewport-based scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.target.classList.contains('projects-header')) {
-            setTitleVisible(entry.isIntersecting)
+            // Title animation with reset
+            requestAnimationFrame(() => {
+              setTitleVisible(entry.isIntersecting)
+            })
           } else {
             const cardId = parseInt(entry.target.dataset.cardId)
             const index = parseInt(entry.target.dataset.index)
             if (entry.isIntersecting) {
-              setTimeout(() => {
-                setVisibleCards(prev => new Set([...prev, cardId]))
-              }, index * 150)
+              // Card entered viewport - show with stagger
+              requestAnimationFrame(() => {
+                setTimeout(() => {
+                  setVisibleCards(prev => new Set([...prev, cardId]))
+                }, index * 150)
+              })
             } else {
-              // Remove from visible cards when scrolling out
-              setVisibleCards(prev => {
-                const newSet = new Set(prev)
-                newSet.delete(cardId)
-                return newSet
+              // Card left viewport - hide for replay
+              requestAnimationFrame(() => {
+                setVisibleCards(prev => {
+                  const newSet = new Set(prev)
+                  newSet.delete(cardId)
+                  return newSet
+                })
               })
             }
           }
         })
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px' // Start animating 100px before entering
+      }
     )
 
     const header = sectionRef.current?.querySelector('.projects-header')

@@ -24,27 +24,30 @@ function Hero() {
     </span>
   ))
 
-  // Intersection Observer for scroll-triggered animations
+  // Intersection Observer for viewport-based scroll animations
   useEffect(() => {
-    // Trigger animation immediately on mount since hero is first visible
-    setIsVisible(true)
-    if (heroRef.current) {
-      heroRef.current.classList.add('animate-in')
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true)
-            entry.target.classList.add('animate-in')
+            // Element entered viewport - trigger animation
+            requestAnimationFrame(() => {
+              setIsVisible(true)
+              entry.target.classList.add('animate-in')
+            })
           } else {
-            setIsVisible(false)
-            entry.target.classList.remove('animate-in')
+            // Element left viewport - reset animation for replay
+            requestAnimationFrame(() => {
+              setIsVisible(false)
+              entry.target.classList.remove('animate-in')
+            })
           }
         })
       },
-      { threshold: 0.2 }
+      {
+        threshold: 0.2, // Trigger when 20% visible
+        rootMargin: '0px 0px -100px 0px' // Start animating 100px before entering
+      }
     )
 
     if (heroRef.current) {

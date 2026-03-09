@@ -13,17 +13,27 @@ function Skills() {
   const skillsRef = useRef(null)
 
   useEffect(() => {
+    // Viewport-based Intersection Observer with reset on exit
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in')
+            // Element entered viewport - trigger animation
+            requestAnimationFrame(() => {
+              entry.target.classList.add('animate-in')
+            })
           } else {
-            entry.target.classList.remove('animate-in')
+            // Element left viewport - reset animation for replay
+            requestAnimationFrame(() => {
+              entry.target.classList.remove('animate-in')
+            })
           }
         })
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.15, // Trigger when 15% visible
+        rootMargin: '0px 0px -100px 0px' // Start animating 100px before entering
+      }
     )
 
     if (skillsRef.current) {
