@@ -195,21 +195,40 @@ footer p {
 
 /* Tablet - max-width 768px */
 @media (max-width: 768px) {
+  /* Reduced navbar height on tablet/mobile */
   .navbar {
-    padding: 0.8rem 1.5rem;
+    padding: 0.5rem 1.2rem; /* Significantly reduced vertical padding */
+    align-items: center; /* Ensure vertical centering */
   }
   
+  /* Smaller logo on mobile/tablet */
   .nav-brand {
-    font-size: 1.3rem;
+    font-size: 1.25rem; /* Reduced from 1.3rem */
+    line-height: 1.2; /* Better vertical alignment */
+  }
+  
+  /* Hamburger menu alignment fix */
+  .hamburger-menu {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .hamburger-line {
+    height: 2.5px; /* Slightly thinner lines */
   }
   
   .nav-links {
-    gap: 1.2rem;
+    gap: 1rem;
   }
   
   .nav-links a {
     font-size: 0.85rem;
-    padding: 0.45rem 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 
@@ -235,24 +254,35 @@ footer p {
     padding: 0.75rem 1rem;
   }
   
+  /* Compact navbar on mobile */
+  .navbar {
+    padding: 0.45rem 0.9rem; /* Further reduced for mobile */
+    align-items: center; /* Ensure perfect vertical centering */
+  }
+  
   /* Ensure brand fits on mobile */
   .nav-brand {
-    font-size: 1.2rem;
+    font-size: 1.15rem; /* Reduced from 1.2rem for better fit */
+    line-height: 1.2;
     white-space: nowrap;
   }
   
   /* Show hamburger menu on mobile */
   .hamburger-menu {
     display: flex;
+    align-items: center; /* Perfect vertical alignment */
+    justify-content: center; /* Perfect horizontal alignment */
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight on Android */
     min-width: 44px; /* Touch-friendly target */
     min-height: 44px;
+    padding: 0;
+    margin: 0;
   }
   
-  /* Hide nav links by default on mobile */
+  /* Adjust nav-links position to match reduced navbar height */
   .nav-links {
     position: fixed;
-    top: 58px; /* Adjusted to match reduced navbar height */
+    top: 50px; /* Reduced from 58px to match compact navbar */
     left: 0;
     right: 0;
     background: rgba(28, 28, 28, 0.98);
@@ -295,7 +325,7 @@ footer p {
   }
   
   main {
-    padding-top: 60px; /* Further reduced - content starts immediately after navbar */
+    padding-top: 52px; /* Reduced from 60px to match compact navbar */
   }
   
   section,
@@ -307,7 +337,7 @@ footer p {
   #achievements,
   #education,
   .projects-section {
-    scroll-margin-top: 70px; /* Increased to ensure heading is visible below navbar */
+    scroll-margin-top: 65px; /* Adjusted for compact navbar */
     padding-left: 0.8rem !important;
     padding-right: 0.8rem !important;
   }
@@ -320,16 +350,22 @@ footer p {
   }
   
   .navbar {
-    padding: 0.7rem 0.8rem; /* Further reduced for very small screens */
+    padding: 0.4rem 0.7rem; /* Further reduced for very small screens */
+    align-items: center;
   }
   
   .nav-brand {
-    font-size: 1.1rem;
+    font-size: 1.05rem; /* Smaller for 360px screens */
+    line-height: 1.2;
   }
   
   .hamburger-menu {
     width: 26px;
     height: 18px;
+    min-width: 40px;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
   }
   
   .hamburger-line {
@@ -337,7 +373,7 @@ footer p {
   }
   
   .nav-links {
-    top: 52px; /* Adjusted for smaller navbar */
+    top: 46px; /* Adjusted for smaller navbar on 360px */
   }
   
   .nav-links a {
@@ -346,7 +382,7 @@ footer p {
   }
   
   main {
-    padding-top: 55px; /* Reduced for compact screens */
+    padding-top: 48px; /* Reduced from 55px to match compact navbar */
   }
   
   section,
@@ -358,7 +394,7 @@ footer p {
   #achievements,
   #education,
   .projects-section {
-    scroll-margin-top: 65px; /* Adjusted for smaller navbar */
+    scroll-margin-top: 60px; /* Adjusted for very compact navbar */
   }
 }
 
