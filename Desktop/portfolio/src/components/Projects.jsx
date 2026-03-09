@@ -33,7 +33,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
       description: 'Interactive Power BI dashboard analyzing obesity trends with dynamic visualizations and demographic insights.',
       tools: ['Power BI', 'Power Query', 'DAX', 'Excel'],
-      link: '#'
+      link: 'https://drive.google.com/file/d/1LjL563aJNoJMlpKWUAqamnV7Q5Os1pPs/view?usp=sharing'
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
       description: 'ML-based health prediction system using multiple algorithms for BMI and stress analysis with clustering techniques.',
       tools: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib'],
-      link: '#'
+      link: 'https://drive.google.com/file/d/14uNGYTTWWWQ3VuDUQExgu4K-l4IOMROT/view?usp=sharing'
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
       description: 'Comprehensive Excel dashboard for sales metrics tracking with Pivot Tables, Charts, and interactive Slicers.',
       tools: ['Excel', 'Pivot Tables', 'Charts', 'VBA'],
-      link: '#'
+      link: 'https://docs.google.com/spreadsheets/d/1Lzixj6iyWm5KM9aCiFLS0X13rl4H5ZaJ/edit?usp=sharing&ouid=113060736502231046787&rtpof=true&sd=true'
     },
     {
       id: 5,
