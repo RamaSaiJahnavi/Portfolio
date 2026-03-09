@@ -57,7 +57,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
       description: 'Comprehensive Excel dashboard for sales metrics tracking with Pivot Tables, Charts, and interactive Slicers.',
       tools: ['Excel', 'Pivot Tables', 'Charts', 'VBA'],
-      link: 'https://docs.google.com/spreadsheets/d/1Lzixj6iyWm5KM9aCiFLS0X13rl4H5ZaJ/edit?usp=sharing&ouid=113060736502231046787&rtpof=true&sd=true'
+      link: 'https://1drv.ms/x/c/4ded666c06c78e3a/IQDSCrG1KLg7TJ-PXrjFqObJAYWbZgD56VTb2poB01qIBq8?e=UlrDEq'
     },
     {
       id: 5,
