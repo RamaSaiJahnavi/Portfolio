@@ -250,17 +250,14 @@ footer p {
     max-width: 100vw;
   }
   
+  /* Optimized navbar for mobile - visually balanced height */
   .navbar {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem; /* Balanced vertical & horizontal padding */
+    align-items: center; /* Perfect vertical centering */
+    min-height: 52px; /* Consistent minimum height */
   }
   
-  /* Compact navbar on mobile */
-  .navbar {
-    padding: 0.45rem 0.9rem; /* Further reduced for mobile */
-    align-items: center; /* Ensure perfect vertical centering */
-  }
-  
-  /* Ensure brand fits on mobile */
+  /* Ensure brand fits on mobile - proportional sizing */
   .nav-brand {
     font-size: 1.15rem; /* Reduced from 1.2rem for better fit */
     line-height: 1.2;
@@ -279,10 +276,16 @@ footer p {
     margin: 0;
   }
   
+  /* Hamburger lines proportional to navbar size */
+  .hamburger-line {
+    height: 2.5px;
+    border-radius: 1px;
+  }
+  
   /* Adjust nav-links position to match reduced navbar height */
   .nav-links {
     position: fixed;
-    top: 50px; /* Reduced from 58px to match compact navbar */
+    top: 52px; /* Reduced from 58px to match compact navbar */
     left: 0;
     right: 0;
     background: rgba(28, 28, 28, 0.98);
@@ -349,9 +352,11 @@ footer p {
     font-size: 13px;
   }
   
+  /* Ultra-compact navbar for very small screens */
   .navbar {
-    padding: 0.4rem 0.7rem; /* Further reduced for very small screens */
+    padding: 0.45rem 0.7rem; /* Further reduced for very small screens */
     align-items: center;
+    min-height: 48px; /* Smaller minimum height for 360px */
   }
   
   .nav-brand {
@@ -373,7 +378,7 @@ footer p {
   }
   
   .nav-links {
-    top: 46px; /* Adjusted for smaller navbar on 360px */
+    top: 48px; /* Adjusted for smaller navbar on 360px */
   }
   
   .nav-links a {
@@ -395,6 +400,43 @@ footer p {
   #education,
   .projects-section {
     scroll-margin-top: 60px; /* Adjusted for very compact navbar */
+  }
+}
+
+/* Small Mobile - 361px to 480px range optimization */
+@media (min-width: 361px) and (max-width: 480px) {
+  /* Balanced navbar height for mid-range mobile devices */
+  .navbar {
+    min-height: 54px; /* Slightly taller than 360px for better proportion */
+  }
+  
+  .nav-brand {
+    font-size: 1.18rem; /* Proportional sizing for this range */
+  }
+  
+  .hamburger-menu {
+    min-width: 42px;
+    min-height: 42px;
+  }
+  
+  .nav-links {
+    top: 54px; /* Match navbar height */
+  }
+  
+  main {
+    padding-top: 54px; /* Balanced spacing for this range */
+  }
+  
+  section,
+  #home,
+  #skills,
+  #projects,
+  #training,
+  #certifications,
+  #achievements,
+  #education,
+  .projects-section {
+    scroll-margin-top: 64px; /* Proportional scroll margin */
   }
 }
 
