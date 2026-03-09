@@ -136,40 +136,58 @@
 
 @media (max-width: 480px) {
   .training {
-    padding: 2rem 0.8rem;
+    padding: 2.5rem 0.8rem; /* Reduced from 4rem */
   }
   
   .training h2 {
-    font-size: 1.7rem;
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
     letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .training-cards {
+    gap: 1.25rem;
   }
   
   .training-card {
-    padding: 1rem;
+    padding: 1.25rem 1rem; /* Proper 16px side padding */
     border-left-width: 3px;
   }
   
   .training-card h3 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Minimum 16px equivalent */
+    margin: 0 0 0.5rem 0;
   }
   
   .training-duration {
-    font-size: 0.85rem;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
   }
   
   .training-details li {
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     padding-left: 1.1rem;
+  }
+  
+  .training-link {
+    font-size: 0.85rem;
+    padding: 0.7rem 1.3rem;
+    min-height: 44px;
   }
 }
 
 @media (max-width: 360px) {
+  .training {
+    padding: 2rem 0.6rem;
+  }
+  
   .training h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    margin-bottom: 1.75rem;
   }
   
   .training-card {
-    padding: 0.9rem;
+    padding: 1rem 0.9rem;
   }
   
   .training-card h3 {
@@ -187,6 +205,7 @@
   
   .training-link {
     font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.65rem 1.1rem;
+    min-height: 44px;
   }
 }

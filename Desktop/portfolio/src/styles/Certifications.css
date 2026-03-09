@@ -112,30 +112,54 @@
 
 @media (max-width: 480px) {
   .certifications {
-    padding: 2rem 0.8rem;
+    padding: 2.5rem 0.8rem; /* Reduced from 4rem */
   }
   
   .certifications h2 {
-    font-size: 1.7rem;
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
     letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .certifications-grid {
+    gap: 1.25rem;
   }
   
   .certification-card {
-    padding: 1rem;
+    padding: 1.25rem 1rem; /* Proper 16px side padding */
     border-left-width: 3px;
   }
   
   .certification-card h3 {
-    font-size: 0.95rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Minimum 16px equivalent */
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .cert-issuer {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  
+  .cert-date {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 360px) {
+  .certifications {
+    padding: 2rem 0.6rem;
+  }
+  
   .certifications h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .certification-card {
+    padding: 1rem 0.9rem;
   }
   
   .certification-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }

@@ -111,31 +111,51 @@
 
 @media (max-width: 480px) {
   .achievements {
-    padding: 2rem 0.8rem;
+    padding: 2.5rem 0.8rem; /* Reduced from 4rem */
   }
   
   .achievements h2 {
-    font-size: 1.7rem;
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
     letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .achievements-list {
+    gap: 1.25rem;
   }
   
   .achievement-card {
-    padding: 1rem;
+    padding: 1.25rem 1rem; /* Proper 16px side padding */
     border-left-width: 3px;
   }
   
   .achievement-card h3 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Minimum 16px equivalent */
+    margin: 0 0 0.5rem 0;
   }
   
   .achievement-desc {
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  
+  .achievement-date {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 360px) {
+  .achievements {
+    padding: 2rem 0.6rem;
+  }
+  
   .achievements h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .achievement-card {
+    padding: 1rem 0.9rem;
   }
   
   .achievement-card h3 {

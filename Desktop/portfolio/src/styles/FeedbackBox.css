@@ -197,21 +197,21 @@
 /* Responsive */
 @media (max-width: 480px) {
   .feedback-container {
-    bottom: 75px;
-    right: 15px;
+    bottom: 70px; /* Reduced from 75px - better spacing */
+    right: 12px;
   }
   
   .feedback-button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.3rem;
+    width: 48px; /* Slightly reduced from 50px */
+    height: 48px;
+    font-size: 1.25rem;
   }
   
   .feedback-window {
-    width: calc(100vw - 30px);
+    width: calc(100vw - 24px);
     max-width: 320px;
     max-height: 500px;
-    bottom: 60px;
+    bottom: 65px; /* Adjusted for button spacing */
     right: 0;
   }
   
@@ -234,18 +234,18 @@
 
 @media (max-width: 360px) {
   .feedback-container {
-    bottom: 65px;
-    right: 12px;
+    bottom: 60px; /* Further reduced */
+    right: 10px;
   }
   
   .feedback-button {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
+    width: 44px; /* Minimum touch-friendly size */
+    height: 44px;
+    font-size: 1.15rem;
   }
   
   .feedback-window {
-    width: calc(100vw - 24px);
+    width: calc(100vw - 20px);
     max-width: 280px;
     max-height: 450px;
   }

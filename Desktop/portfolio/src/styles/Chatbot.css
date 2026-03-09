@@ -219,21 +219,21 @@
 /* Responsive */
 @media (max-width: 480px) {
   .chatbot-container {
-    bottom: 15px;
-    right: 15px;
+    bottom: 12px; /* Reduced from 15px - better spacing */
+    right: 12px;
   }
   
   .chatbot-button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.3rem;
+    width: 48px; /* Slightly reduced from 50px */
+    height: 48px;
+    font-size: 1.25rem;
   }
   
   .chatbot-window {
-    width: calc(100vw - 30px);
+    width: calc(100vw - 24px);
     max-width: 320px;
     height: 450px;
-    bottom: 70px;
+    bottom: 65px; /* Adjusted for button spacing */
     right: 0;
   }
   
@@ -257,18 +257,18 @@
 
 @media (max-width: 360px) {
   .chatbot-container {
-    bottom: 12px;
-    right: 12px;
+    bottom: 10px; /* Further reduced */
+    right: 10px;
   }
   
   .chatbot-button {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
+    width: 44px; /* Minimum touch-friendly size */
+    height: 44px;
+    font-size: 1.15rem;
   }
   
   .chatbot-window {
-    width: calc(100vw - 24px);
+    width: calc(100vw - 20px);
     max-width: 280px;
     height: 400px;
   }
