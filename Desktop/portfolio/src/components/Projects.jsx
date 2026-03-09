@@ -33,7 +33,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
       description: 'Interactive Power BI dashboard analyzing obesity trends with dynamic visualizations and demographic insights.',
       tools: ['Power BI', 'Power Query', 'DAX', 'Excel'],
-      link: 'https://drive.google.com/file/d/1LjL563aJNoJMlpKWUAqamnV7Q5Os1pPs/view?usp=sharing'
+      link: 'https://app.powerbi.com/view?r=eyJrIjoiYjY3OGQzZGMtZWI3ZS00YTAxLWJkMGEtNjZkODJlODQyZTEyIiwidCI6ImUxNGU3M2ViLTUyNTEtNDM4OC04ZDY3LThmOWYyZTJkNWE0NiIsImMiOjEwfQ%3D%3D'
     },
     {
       id: 3,
