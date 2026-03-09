@@ -190,6 +190,7 @@ footer p {
   body {
     overflow-x: hidden;
     width: 100%;
+    -webkit-text-size-adjust: 100%; /* Prevent text zoom on Android */
   }
   
   .navbar {
@@ -199,6 +200,7 @@ footer p {
   /* Show hamburger menu on mobile */
   .hamburger-menu {
     display: flex;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on Android */
   }
   
   /* Hide nav links by default on mobile */
@@ -209,6 +211,7 @@ footer p {
     right: 0;
     background: rgba(28, 28, 28, 0.98);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     flex-direction: column;
     align-items: center;
     padding: 2rem 1rem;
@@ -218,6 +221,7 @@ footer p {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(166, 139, 124, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 999;
   }
   
   .nav-links.active {
@@ -232,6 +236,7 @@ footer p {
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     margin: 0.25rem 0;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .nav-links a:hover,

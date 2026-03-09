@@ -30,6 +30,19 @@
   cursor: default;
 }
 
+/* Mobile Optimization: Prevent zoom on tap for Android devices */
+@media (max-width: 480px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
 a {
   font-weight: 500;
   color: #646cff;
