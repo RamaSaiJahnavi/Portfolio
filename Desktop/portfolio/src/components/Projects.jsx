@@ -70,6 +70,18 @@ function Projects() {
       description: 'Full-stack employee management solution with CRUD operations, role-based access control, and real-time data handling.',
       tools: ['Spring Boot', 'MySQL', 'Spring Security', 'Thymeleaf', 'Bootstrap'],
       link: 'https://employee-management-system-one-coral.vercel.app/'
+    },
+    {
+      id: 6,
+      title: 'Anime Recommendation System',
+      tag: 'Power BI Project',
+      category: 'Data',
+      accentColor: '#ec4899',
+      duration: "Dec'25 – Jan'26",
+      image: 'https://images.unsplash.com/photo-1578632767115-351597cf3483?w=600&q=80',
+      description: 'Interactive Anime Recommendation System using SQL, Python, and Power BI to analyze rating patterns, genre trends, and user preferences for data-driven recommendations.',
+      tools: ['Power BI', 'SQL', 'Python', 'DAX', 'Data Modeling'],
+      link: '#'
     }
   ]
 
