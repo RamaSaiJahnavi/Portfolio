@@ -27,11 +27,13 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 20% 30%, rgba(74, 7, 84, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(69, 12, 28, 0.5) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(46, 37, 26, 0.3) 0%, transparent 60%);
+    radial-gradient(ellipse at 20% 30%, rgba(74, 7, 84, 0.5) 0%, transparent 50%), /* Enhanced opacity */
+    radial-gradient(ellipse at 80% 70%, rgba(69, 12, 28, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(46, 37, 26, 0.4) 0%, transparent 60%);
   animation: ambientGlow 15s ease-in-out infinite;
   z-index: -2;
+  -webkit-backface-visibility: hidden; /* Android Chrome optimization */
+  backface-visibility: hidden;
 }
 
 .hero::after {
