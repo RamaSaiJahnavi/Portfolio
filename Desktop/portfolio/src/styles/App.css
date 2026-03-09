@@ -195,40 +195,48 @@ footer p {
 
 /* Tablet - max-width 768px */
 @media (max-width: 768px) {
-  /* Reduced navbar height on tablet/mobile */
+  /* Compact navbar height on tablet/mobile */
   .navbar {
-    padding: 0.5rem 1.2rem; /* Significantly reduced vertical padding */
+    padding: 0.4rem 1rem; /* Reduced vertical & horizontal padding */
     align-items: center; /* Ensure vertical centering */
+    min-height: 48px; /* Constrain navbar height */
   }
   
   /* Smaller logo on mobile/tablet */
   .nav-brand {
-    font-size: 1.25rem; /* Reduced from 1.3rem */
+    font-size: 1.2rem; /* Reduced size */
     line-height: 1.2; /* Better vertical alignment */
   }
   
-  /* Hamburger menu alignment fix */
+  /* Make hamburger menu visible on mobile */
   .hamburger-menu {
-    display: flex;
+    display: flex; /* Show hamburger on mobile */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
-    min-width: 40px;
-    min-height: 40px;
-    padding: 0;
+    width: 32px; /* Proper icon size */
+    height: 24px;
+    min-width: 44px; /* Touch-friendly target */
+    min-height: 44px;
+    padding: 4px; /* Small padding for tap area */
     margin: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
   }
   
+  /* Ensure hamburger lines are clearly visible */
   .hamburger-line {
-    height: 2.5px; /* Slightly thinner lines */
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #A68B7C, #C9A86C); /* Enhanced gradient with lighter gold */
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(166, 139, 124, 0.4); /* Subtle glow for visibility */
   }
   
+  /* Hide desktop nav links on mobile */
   .nav-links {
-    gap: 1rem;
-  }
-  
-  .nav-links a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
+    display: none; /* Hidden by default on mobile */
   }
 }
 
@@ -250,36 +258,44 @@ footer p {
     max-width: 100vw;
   }
   
-  /* Optimized navbar for mobile - visually balanced height */
+  /* Optimized navbar for mobile - reduced height */
   .navbar {
-    padding: 0.5rem 1rem; /* Balanced vertical & horizontal padding */
-    align-items: center; /* Perfect vertical centering */
-    min-height: 52px; /* Consistent minimum height */
+    padding: 0.35rem 0.9rem; /* Further reduced for mobile */
+    align-items: center; /* Ensure perfect vertical centering */
+    min-height: 46px; /* Smaller height for mobile */
   }
   
   /* Ensure brand fits on mobile - proportional sizing */
   .nav-brand {
-    font-size: 1.15rem; /* Reduced from 1.2rem for better fit */
+    font-size: 1.1rem; /* Reduced size */
     line-height: 1.2;
     white-space: nowrap;
   }
   
-  /* Show hamburger menu on mobile */
+  /* Show hamburger menu on mobile - clearly visible */
   .hamburger-menu {
     display: flex;
     align-items: center; /* Perfect vertical alignment */
     justify-content: center; /* Perfect horizontal alignment */
+    width: 32px;
+    height: 24px;
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight on Android */
     min-width: 44px; /* Touch-friendly target */
     min-height: 44px;
-    padding: 0;
+    padding: 4px;
     margin: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
   }
   
-  /* Hamburger lines proportional to navbar size */
+  /* Enhanced visibility for hamburger lines */
   .hamburger-line {
-    height: 2.5px;
-    border-radius: 1px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #A68B7C, #C9A86C); /* Lighter gradient */
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(166, 139, 124, 0.5); /* Enhanced glow */
   }
   
   /* Adjust nav-links position to match reduced navbar height */
@@ -354,27 +370,36 @@ footer p {
   
   /* Ultra-compact navbar for very small screens */
   .navbar {
-    padding: 0.45rem 0.7rem; /* Further reduced for very small screens */
+    padding: 0.3rem 0.7rem; /* Minimal padding for 360px */
     align-items: center;
-    min-height: 48px; /* Smaller minimum height for 360px */
+    min-height: 44px; /* Smallest height */
   }
   
   .nav-brand {
-    font-size: 1.05rem; /* Smaller for 360px screens */
+    font-size: 1rem; /* Smaller for 360px screens */
     line-height: 1.2;
   }
   
   .hamburger-menu {
-    width: 26px;
-    height: 18px;
+    width: 28px;
+    height: 20px;
     min-width: 40px;
     min-height: 40px;
     align-items: center;
     justify-content: center;
+    padding: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
   }
   
+  /* Enhanced visibility for hamburger lines */
   .hamburger-line {
-    height: 2.5px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #A68B7C, #C9A86C);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(166, 139, 124, 0.5);
   }
   
   .nav-links {
