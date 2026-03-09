@@ -5,6 +5,9 @@
 
 /* Achievements Header with Sliding Underline */
 .achievements-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-bottom: 3rem;
   opacity: 0;
@@ -34,38 +37,15 @@
 }
 
 .achievements-underline {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #c9a86c,
-    transparent
-  );
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #c9a86c, transparent);
   margin-top: 0.75rem;
-  position: relative;
-  overflow: hidden;
+  width: 0;
+  transition: width 0.8s ease 0.3s;
 }
 
-.achievements-underline::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.achievements-header.visible .achievements-underline {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(201, 168, 108, 0.8),
-    transparent
-  );
-  animation: drawLine 1.2s ease-out 0.5s forwards;
-}
-
-@keyframes drawLine {
-  to {
-    left: 100%;
-  }
 }
 
 .achievements-grid {

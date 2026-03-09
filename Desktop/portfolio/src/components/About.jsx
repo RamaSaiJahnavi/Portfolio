@@ -65,8 +65,10 @@ function About() {
       </div>
 
       <div className="about-heading-wrapper animate-on-scroll">
-        <h2>About Me</h2>
-        <div className="about-title-underline"></div>
+        <div className="about-title-wrapper">
+          <h2>About Me</h2>
+          <div className="about-title-underline"></div>
+        </div>
       </div>
       
       <div className="about-content">

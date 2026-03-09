@@ -144,8 +144,10 @@ function Skills() {
 
       {/* Section Title */}
       <div className="skills-title">
-        <h2>Skills</h2>
-        <div className="skills-title-underline" />
+        <div className="skills-title-wrapper">
+          <h2>Skills</h2>
+          <div className="skills-title-underline" />
+        </div>
       </div>
 
       {/* Skills Categories */}
