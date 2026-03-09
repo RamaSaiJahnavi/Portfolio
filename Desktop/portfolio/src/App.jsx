@@ -75,14 +75,26 @@ function App() {
     // Listen for scroll events
     window.addEventListener('scroll', handleScroll)
     
+    // Click outside to close mobile menu
+    const handleClickOutside = (e) => {
+      if (isMobileMenuOpen && !e.target.closest('.navbar')) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+    
     // Cleanup event listeners
     return () => {
       window.removeEventListener('scroll', handleScroll)
       navLinks.forEach(link => {
         link.removeEventListener('click', handleAnchorClick)
       })
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
     }
-  }, [])
+  }, [isMobileMenuOpen])
 
   // Remove the handleNavClick function as it's no longer needed
   // Navigation is now handled in the useEffect anchor click handler
@@ -100,6 +112,12 @@ function App() {
 
   return (
     <div className="app">
+      {/* Overlay for mobile menu */}
+      <div 
+        className={`nav-overlay ${isMobileMenuOpen ? 'active' : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      ></div>
+      
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-brand">Portfolio</div>
         
@@ -107,7 +125,7 @@ function App() {
         <button 
           className="hamburger-menu"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Toggle menu'}
         >
           <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
           <span className={`hamburger-line ${isMobileMenuOpen ? 'open' : ''}`}></span>
