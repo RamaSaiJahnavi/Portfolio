@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import '../styles/Training.css'
 
 function Training() {
+  const sectionRef = useRef(null)
+  const [titleVisible, setTitleVisible] = useState(false)
+  
   const trainingItems = [
     {
       title: 'From Data to Decisions: A Hands-On Approach to Data Science',
@@ -13,10 +17,39 @@ function Training() {
       ]
     }
   ]
+  
+  // Viewport-based animation for heading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.classList.contains('training-header')) {
+            requestAnimationFrame(() => {
+              setTitleVisible(entry.isIntersecting)
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    )
+    
+    const header = sectionRef.current?.querySelector('.training-header')
+    if (header) observer.observe(header)
+    
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="training">
-      <h2>Training</h2>
+    <div className="training" ref={sectionRef}>
+      <div className={`training-header ${titleVisible ? 'visible' : ''}`}>
+        <div className="training-title-wrapper">
+          <h2>TRAINING</h2>
+          <div className="training-underline" />
+        </div>
+      </div>
       {trainingItems.map((item, index) => (
         <div key={index} className="training-card">
           <h3>{item.title}</h3>

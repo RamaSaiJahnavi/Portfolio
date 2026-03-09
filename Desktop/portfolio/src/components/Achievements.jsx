@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import '../styles/Achievements.css'
 
 function Achievements() {
+  const sectionRef = useRef(null)
+  const [titleVisible, setTitleVisible] = useState(false)
+  
   const achievements = [
     {
       title: '5-Star Badge on HackerRank',
@@ -13,10 +17,39 @@ function Achievements() {
       date: 'Jan\'25'
     }
   ]
+  
+  // Viewport-based animation for heading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.classList.contains('achievements-header')) {
+            requestAnimationFrame(() => {
+              setTitleVisible(entry.isIntersecting)
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    )
+    
+    const header = sectionRef.current?.querySelector('.achievements-header')
+    if (header) observer.observe(header)
+    
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="achievements">
-      <h2>Achievements</h2>
+    <div className="achievements" ref={sectionRef}>
+      <div className={`achievements-header ${titleVisible ? 'visible' : ''}`}>
+        <div className="achievements-title-wrapper">
+          <h2>ACHIEVEMENTS</h2>
+          <div className="achievements-underline" />
+        </div>
+      </div>
       <div className="achievements-grid">
         {achievements.map((achievement, index) => (
           <div key={index} className="achievement-card">

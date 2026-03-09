@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import '../styles/Education.css'
 
 function Education() {
+  const sectionRef = useRef(null)
+  const [titleVisible, setTitleVisible] = useState(false)
+  
   const education = [
     {
       institution: 'Lovely Professional University',
@@ -24,10 +28,39 @@ function Education() {
       duration: 'Apr\'20 – Jun\'21'
     }
   ]
+  
+  // Viewport-based animation for heading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.classList.contains('education-header')) {
+            requestAnimationFrame(() => {
+              setTitleVisible(entry.isIntersecting)
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    )
+    
+    const header = sectionRef.current?.querySelector('.education-header')
+    if (header) observer.observe(header)
+    
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="education">
-      <h2>Education</h2>
+    <div className="education" ref={sectionRef}>
+      <div className={`education-header ${titleVisible ? 'visible' : ''}`}>
+        <div className="education-title-wrapper">
+          <h2>EDUCATION</h2>
+          <div className="education-underline" />
+        </div>
+      </div>
       <div className="education-timeline">
         {education.map((edu, index) => (
           <div key={index} className="education-card">

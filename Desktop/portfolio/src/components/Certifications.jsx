@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import '../styles/Certifications.css'
 
 function Certifications() {
+  const sectionRef = useRef(null)
+  const [titleVisible, setTitleVisible] = useState(false)
+  
   const certifications = [
     {
       title: 'From Data to Decisions: Hands-on Approach to Data Science',
@@ -21,10 +25,39 @@ function Certifications() {
       link: '#'
     }
   ]
+  
+  // Viewport-based animation for heading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target.classList.contains('certifications-header')) {
+            requestAnimationFrame(() => {
+              setTitleVisible(entry.isIntersecting)
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    )
+    
+    const header = sectionRef.current?.querySelector('.certifications-header')
+    if (header) observer.observe(header)
+    
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="certifications">
-      <h2>Certifications</h2>
+    <div className="certifications" ref={sectionRef}>
+      <div className={`certifications-header ${titleVisible ? 'visible' : ''}`}>
+        <div className="certifications-title-wrapper">
+          <h2>CERTIFICATIONS</h2>
+          <div className="certifications-underline" />
+        </div>
+      </div>
       <div className="certifications-grid">
         {certifications.map((cert, index) => (
           <div key={index} className="certification-card">
