@@ -36,13 +36,43 @@ function App() {
       setIsScrolled(window.scrollY > 50)
     }
 
+    // Smooth scroll handler for anchor links
+    const handleAnchorClick = (e) => {
+      e.preventDefault()
+      const targetId = e.currentTarget.getAttribute('href').substring(1)
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        const navbarHeight = 65 // Approximate navbar height
+        const elementPosition = targetElement.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+        
+        // Close mobile menu after clicking
+        setIsMobileMenuOpen(false)
+        setActiveSection(targetId)
+      }
+    }
+
+    const navLinks = document.querySelectorAll('.nav-links a')
+    navLinks.forEach(link => {
+      link.addEventListener('click', handleAnchorClick)
+    })
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      navLinks.forEach(link => {
+        link.removeEventListener('click', handleAnchorClick)
+      })
+    }
   }, [])
 
-  const handleNavClick = () => {
-    setIsMobileMenuOpen(false)
-  }
+  // Remove the handleNavClick function as it's no longer needed
+  // Navigation is now handled in the useEffect anchor click handler
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -76,7 +106,6 @@ function App() {
               <a 
                 href={`#${item.id}`} 
                 className={activeSection === item.id ? 'active' : ''}
-                onClick={handleNavClick}
               >
                 {item.label}
               </a>

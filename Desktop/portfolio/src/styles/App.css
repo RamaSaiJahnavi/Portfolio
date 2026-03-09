@@ -32,7 +32,7 @@ body {
   background: rgba(28, 28, 28, 0.85); /* Enhanced opacity */
   backdrop-filter: blur(20px) saturate(180%); /* Premium glassmorphism */
   -webkit-backdrop-filter: blur(20px) saturate(180%); /* Android Chrome support */
-  padding: 1rem 2rem;
+  padding: 0.85rem 2rem; /* Reduced from 1rem for better mobile spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +52,12 @@ body {
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Fix for Education section heading visibility */
+.education h2 {
+  position: relative;
+  z-index: 1; /* Ensure heading is above any overlays */
 }
 
 .nav-brand {
@@ -229,7 +235,7 @@ footer p {
   /* Hide nav links by default on mobile */
   .nav-links {
     position: fixed;
-    top: 60px;
+    top: 58px; /* Adjusted to match reduced navbar height */
     left: 0;
     right: 0;
     background: rgba(28, 28, 28, 0.98);
@@ -237,7 +243,7 @@ footer p {
     -webkit-backdrop-filter: blur(10px); /* Safari support */
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1rem;
     gap: 0.5rem;
     max-height: 0;
     overflow: hidden;
@@ -248,8 +254,8 @@ footer p {
   }
   
   .nav-links.active {
-    max-height: 400px;
-    padding: 1.5rem 1rem;
+    max-height: 500px; /* Increased max-height for better visibility */
+    padding: 1rem;
   }
   
   .nav-links a {
@@ -272,11 +278,11 @@ footer p {
   }
   
   main {
-    padding-top: 65px; /* Reduced from 70px - content starts immediately */
+    padding-top: 60px; /* Further reduced - content starts immediately after navbar */
   }
   
   section {
-    scroll-margin-top: 65px; /* Match navbar height */
+    scroll-margin-top: 70px; /* Increased to ensure heading is visible below navbar */
     padding-left: 0.8rem !important;
     padding-right: 0.8rem !important;
   }
@@ -289,7 +295,7 @@ footer p {
   }
   
   .navbar {
-    padding: 0.6rem 0.8rem;
+    padding: 0.7rem 0.8rem; /* Further reduced for very small screens */
   }
   
   .nav-brand {
@@ -306,12 +312,20 @@ footer p {
   }
   
   .nav-links {
-    top: 54px;
+    top: 52px; /* Adjusted for smaller navbar */
   }
   
   .nav-links a {
     font-size: 0.85rem;
     padding: 0.7rem 1rem;
+  }
+  
+  main {
+    padding-top: 55px; /* Reduced for compact screens */
+  }
+  
+  section {
+    scroll-margin-top: 65px; /* Adjusted for smaller navbar */
   }
 }
 
