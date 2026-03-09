@@ -131,15 +131,28 @@
 }
 
 .highlight-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  filter: drop-shadow(0 4px 8px rgba(166, 139, 124, 0.3));
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: #A68B7C;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlight-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 4px 12px rgba(166, 139, 124, 0.3));
 }
 
 .highlight-card:hover .highlight-icon {
-  transform: scale(1.15) rotate(5deg);
+  transform: translateY(-4px) scale(1.08);
+  color: #C9A86C;
+}
+
+.highlight-card:hover .highlight-icon svg {
+  filter: drop-shadow(0 8px 20px rgba(201, 168, 108, 0.4));
 }
 
 .highlight-card h3 {
@@ -187,7 +200,12 @@
   }
   
   .highlight-icon {
-    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight-icon svg {
+    width: 40px;
+    height: 40px;
   }
   
   .highlight-card h3 {
@@ -232,8 +250,12 @@
   }
   
   .highlight-icon {
-    font-size: 2.25rem;
     margin-bottom: 0.75rem;
+  }
+  
+  .highlight-icon svg {
+    width: 36px;
+    height: 36px;
   }
   
   .highlight-card h3 {
@@ -271,7 +293,12 @@
   }
   
   .highlight-icon {
-    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .highlight-icon svg {
+    width: 32px;
+    height: 32px;
   }
   
   .highlight-card h3 {
