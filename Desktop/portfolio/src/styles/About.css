@@ -1,0 +1,284 @@
+/* ============================================
+   ABOUT ME SECTION - Premium Glassmorphism
+   ============================================ */
+
+.about {
+  padding: 5rem 2rem;
+  background: transparent;
+  position: relative;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #FFFFFF;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Algerian', 'Times New Roman', serif;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #E5E7EB;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(166, 139, 124, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-intro:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(166, 139, 124, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Highlight Cards Grid */
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.highlight-card {
+  background: rgba(30, 20, 35, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  padding: 2rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(166, 139, 124, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Animated gradient border on hover */
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    rgba(166, 139, 124, 0.3),
+    rgba(201, 168, 108, 0.2),
+    rgba(166, 139, 124, 0.3)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  background-size: 200% 200%;
+  animation: borderFlow 3s ease-in-out infinite paused;
+}
+
+.highlight-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes borderFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Hover animation */
+.highlight-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(30, 20, 35, 0.75);
+  border-color: rgba(166, 139, 124, 0.4);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(201, 168, 108, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.highlight-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  filter: drop-shadow(0 4px 8px rgba(166, 139, 124, 0.3));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlight-card:hover .highlight-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.highlight-card h3 {
+  color: #A68B7C;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.highlight-card p {
+  color: #E5E7EB;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* ---- Responsive Design ---- */
+
+/* Tablet - max-width 768px */
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1.5rem;
+  }
+  
+  .about h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-intro {
+    font-size: 1rem;
+    padding: 1.5rem 1.75rem;
+  }
+  
+  .about-highlights {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .highlight-card {
+    padding: 1.75rem 1.5rem;
+  }
+  
+  .highlight-icon {
+    font-size: 2.5rem;
+  }
+  
+  .highlight-card h3 {
+    font-size: 1.15rem;
+  }
+  
+  .highlight-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile - max-width 480px */
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 0.8rem; /* Reduced padding for mobile */
+  }
+  
+  .about h2 {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
+  
+  .about-content {
+    gap: 2rem;
+  }
+  
+  .about-intro {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding: 1.25rem 1rem; /* Proper 16-20px padding */
+    text-align: justify; /* Better readability on mobile */
+  }
+  
+  .about-highlights {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 1.25rem;
+  }
+  
+  .highlight-card {
+    padding: 1.5rem 1.25rem; /* Comfortable padding */
+  }
+  
+  .highlight-icon {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .highlight-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .highlight-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+/* Extra Small - max-width 360px */
+@media (max-width: 360px) {
+  .about {
+    padding: 2.5rem 0.6rem;
+  }
+  
+  .about h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .about-intro {
+    font-size: 0.875rem;
+    padding: 1rem 0.9rem;
+  }
+  
+  .about-highlights {
+    gap: 1rem;
+  }
+  
+  .highlight-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .highlight-icon {
+    font-size: 2rem;
+  }
+  
+  .highlight-card h3 {
+    font-size: 1rem;
+  }
+  
+  .highlight-card p {
+    font-size: 0.825rem;
+  }
+}

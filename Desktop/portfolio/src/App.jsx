@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './styles/App.css'
 import Hero from './components/Hero'
+import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Training from './components/Training'
@@ -17,7 +18,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'skills', 'projects', 'training', 'certifications', 'achievements', 'education']
+      const sections = ['home', 'about', 'skills', 'projects', 'training', 'certifications', 'achievements', 'education']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -88,6 +89,7 @@ function App() {
 
   const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'training', label: 'Training' },
@@ -128,6 +130,7 @@ function App() {
       
       <main>
         <section id="home"><Hero /></section>
+        <section id="about"><About /></section>
         <section id="skills"><Skills /></section>
         <section id="projects"><Projects /></section>
         <section id="training"><Training /></section>
