@@ -1,11 +1,75 @@
 /* ============================================
-   ABOUT ME SECTION - Premium Glassmorphism
+   ABOUT ME SECTION - Premium Interactive
    ============================================ */
 
 .about {
   padding: 5rem 2rem;
   background: transparent;
   position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Orbs */
+.about-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(166, 139, 124, 0.15), transparent);
+  filter: blur(40px);
+  animation: floatOrb 8s ease-in-out infinite;
+  opacity: 0;
+}
+
+.floating-orb.animate-in {
+  opacity: 1;
+}
+
+.orb-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(201, 168, 108, 0.12), transparent);
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(127, 23, 52, 0.1), transparent);
+  animation-delay: 4s;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
 }
 
 .about h2 {
@@ -21,12 +85,43 @@
   z-index: 1;
 }
 
+/* Gradient Text Effect for Heading */
+.about-heading {
+  background: linear-gradient(135deg, #A68B7C 0%, #C9A86C 50%, #A68B7C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.about-heading.animate-in {
+  animation: slideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+             gradientShift 4s ease-in-out infinite;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .about-intro {
@@ -46,6 +141,36 @@
     0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.about-intro.animate-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+/* Shimmer Effect on Bio Card */
+.intro-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(166, 139, 124, 0.1),
+    transparent
+  );
+  animation: shimmerSweep 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0%, 100% { left: -100%; }
+  50%, 90% { left: 200%; }
 }
 
 .about-intro:hover {
@@ -54,7 +179,8 @@
   transform: translateY(-2px);
   box-shadow: 
     0 12px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(166, 139, 124, 0.1);
 }
 
 /* Highlight Cards Grid */
@@ -79,6 +205,37 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.highlight-card.animate-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) var(--delay) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Glow Effect */
+.card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(201, 168, 108, 0.15), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.highlight-card:hover .card-glow {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 /* Animated gradient border on hover */
@@ -121,13 +278,14 @@
 
 /* Hover animation */
 .highlight-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-12px) scale(1.03);
   background: rgba(30, 20, 35, 0.75);
-  border-color: rgba(166, 139, 124, 0.4);
+  border-color: rgba(166, 139, 124, 0.5);
   box-shadow: 
-    0 16px 48px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(201, 168, 108, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(201, 168, 108, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(166, 139, 124, 0.15);
 }
 
 .highlight-icon {
@@ -136,7 +294,9 @@
   justify-content: center;
   margin-bottom: 1.25rem;
   color: #A68B7C;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
 }
 
 .highlight-icon svg {
@@ -144,15 +304,24 @@
   height: 48px;
   stroke-width: 1.5;
   filter: drop-shadow(0 4px 12px rgba(166, 139, 124, 0.3));
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Icon Animation on Hover */
 .highlight-card:hover .highlight-icon {
-  transform: translateY(-4px) scale(1.08);
+  transform: translateY(-8px) scale(1.15);
   color: #C9A86C;
+  animation: iconBounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlight-card:hover .highlight-icon svg {
-  filter: drop-shadow(0 8px 20px rgba(201, 168, 108, 0.4));
+  filter: drop-shadow(0 8px 20px rgba(201, 168, 108, 0.5));
+  transform: scale(1.1);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.15); }
 }
 
 .highlight-card h3 {
@@ -178,6 +347,10 @@
 @media (max-width: 768px) {
   .about {
     padding: 4rem 1.5rem;
+  }
+  
+  .about-background {
+    display: none; /* Disable orbs on tablet for performance */
   }
   
   .about h2 {
@@ -221,6 +394,10 @@
 @media (max-width: 480px) {
   .about {
     padding: 3rem 0.8rem; /* Reduced padding for mobile */
+  }
+  
+  .about-background {
+    display: none; /* Disable orbs on mobile for performance */
   }
   
   .about h2 {
@@ -272,6 +449,10 @@
 @media (max-width: 360px) {
   .about {
     padding: 2.5rem 0.6rem;
+  }
+  
+  .about-background {
+    display: none;
   }
   
   .about h2 {
