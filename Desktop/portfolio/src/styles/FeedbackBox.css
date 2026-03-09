@@ -196,51 +196,65 @@
 
 /* Responsive */
 @media (max-width: 480px) {
-  .feedback-window {
-    width: calc(100vw - 40px);
-    right: -10px;
-  }
-  
   .feedback-container {
-    bottom: 85px;
+    bottom: 75px;
+    right: 15px;
   }
   
-  .feedback-header h3 {
-    font-size: 0.9rem;
+  .feedback-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
   }
   
-  .feedback-content {
-    padding: 0.8rem;
+  .feedback-window {
+    width: calc(100vw - 30px);
+    max-width: 320px;
+    max-height: 500px;
+    bottom: 60px;
+    right: 0;
   }
   
-  .feedback-message {
-    font-size: 0.85rem;
-    padding: 0.7rem 0.9rem;
+  .feedback-header {
+    padding: 1rem;
   }
   
-  .feedback-input input,
-  .feedback-input textarea {
-    font-size: 0.85rem;
-    padding: 0.6rem 0.8rem;
+  .feedback-header h4 {
+    font-size: 1rem;
   }
   
-  .feedback-submit button {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+  .feedback-header p {
+    font-size: 0.75rem;
+  }
+  
+  .feedback-form {
+    padding: 1rem;
   }
 }
 
 @media (max-width: 360px) {
+  .feedback-container {
+    bottom: 65px;
+    right: 12px;
+  }
+  
+  .feedback-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+  
   .feedback-window {
-    width: calc(100vw - 30px);
+    width: calc(100vw - 24px);
+    max-width: 280px;
+    max-height: 450px;
   }
   
-  .feedback-header h3 {
-    font-size: 0.85rem;
+  .feedback-header h4 {
+    font-size: 0.9rem;
   }
   
-  .feedback-message {
-    font-size: 0.8rem;
-    padding: 0.65rem 0.8rem;
+  .feedback-header p {
+    font-size: 0.7rem;
   }
 }
