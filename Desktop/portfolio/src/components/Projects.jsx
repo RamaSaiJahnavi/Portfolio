@@ -78,7 +78,7 @@ function Projects() {
       category: 'Data',
       accentColor: '#ec4899',
       duration: "Dec'25 – Jan'26",
-      image: 'https://images.unsplash.com/photo-1578632767115-351597cf3483?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
       description: 'Interactive Anime Recommendation System using SQL, Python, and Power BI to analyze rating patterns, genre trends, and user preferences for data-driven recommendations.',
       tools: ['Power BI', 'SQL', 'Python', 'DAX', 'Data Modeling'],
       link: 'https://app.powerbi.com/view?r=eyJrIjoiNzM3Zjk4OTAtNzljZi00MGQ1LTk0ZjYtNzllYjhiOGM0MjkzIiwidCI6ImUxNGU3M2ViLTUyNTEtNDM4OC04ZDY3LThmOWYyZTJkNWE0NiIsImMiOjEwfQ%3D%3D'
