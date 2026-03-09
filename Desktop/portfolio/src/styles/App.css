@@ -321,6 +321,7 @@ footer p {
   
   /* Adjust nav-links position to match reduced navbar height */
   .nav-links {
+    display: flex; /* Changed from none to flex for mobile menu */
     position: fixed;
     top: 48px; /* Match navbar height */
     left: 0;
