@@ -88,53 +88,44 @@
   }
 }
 
-.about h2 {
+/* About Me Heading - Match Skills Section Style */
+.about-heading-wrapper {
   text-align: center;
-  font-size: 3rem;
-  color: #FFFFFF; /* White text like Skills */
   margin-bottom: 3rem;
-  font-weight: 900;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-family: 'Algerian', 'Times New Roman', serif;
-  position: relative;
-  z-index: 1;
-}
-
-/* Underline for About Me heading - similar to Skills */
-.about h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #A68B7C, transparent);
-  border-radius: 2px;
-}
-
-/* Gradient Text Effect for Heading */
-.about-heading {
-  animation: none; /* Remove gradient shift animation */
-}
-
-.about-heading.animate-in {
-  animation: slideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.about-heading-wrapper.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes slideDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.about h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-family: 'Algerian', 'Times New Roman', serif;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.about-title-underline {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #a68b7c, transparent);
+  margin: 1rem auto 0;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.6s ease;
+  transition-delay: 0.3s;
+}
+
+.about-heading-wrapper.animate-in .about-title-underline {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .about-content {
@@ -398,15 +389,16 @@
     animation-duration: 4s; /* Slower shimmer */
   }
   
-  .about h2 {
-    font-size: 2.4rem;
+  .about-heading-wrapper {
     margin-bottom: 2.5rem;
   }
   
-  .about h2::after {
-    width: 70px;
-    height: 3px;
-    bottom: -8px;
+  .about h2 {
+    font-size: 2.4rem;
+  }
+  
+  .about-title-underline {
+    width: 80px;
   }
   
   .about-intro {
@@ -466,16 +458,17 @@
     animation: shimmerSweep 5s ease-in-out infinite; /* Slower, less distracting */
   }
   
-  .about h2 {
-    font-size: clamp(1.75rem, 5vw, 2rem); /* Minimum 28px on 320px screen */
-    letter-spacing: 1.5px;
+  .about-heading-wrapper {
     margin-bottom: 1.75rem;
   }
   
-  .about h2::after {
+  .about h2 {
+    font-size: clamp(1.75rem, 5vw, 2rem); /* Minimum 28px on 320px screen */
+    letter-spacing: 1.5px;
+  }
+  
+  .about-title-underline {
     width: 60px;
-    height: 3px;
-    bottom: -6px;
   }
   
   .about-content {
@@ -568,19 +561,16 @@
   }
   
   /* Further reduce animations on very small screens */
-  .about-heading {
-    animation: none; /* No gradient animation - white text */
+  .about-heading-wrapper {
+    margin-bottom: 1.75rem;
   }
   
   .about h2 {
     font-size: 1.6rem; /* ~28px equivalent */
-    margin-bottom: 1.75rem;
   }
   
-  .about h2::after {
+  .about-title-underline {
     width: 50px;
-    height: 2px;
-    bottom: -5px;
   }
   
   .about-intro {

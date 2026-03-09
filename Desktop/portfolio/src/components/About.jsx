@@ -66,7 +66,10 @@ function About() {
         <div className="floating-orb orb-3"></div>
       </div>
 
-      <h2 className="about-heading animate-on-scroll">About Me</h2>
+      <div className="about-heading-wrapper animate-on-scroll">
+        <h2>About Me</h2>
+        <div className="about-title-underline"></div>
+      </div>
       
       <div className="about-content">
         <div className="about-intro animate-on-scroll">
