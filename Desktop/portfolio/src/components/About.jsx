@@ -24,7 +24,27 @@ function About() {
     const elementsToAnimate = sectionRef.current?.querySelectorAll('.animate-on-scroll')
     elementsToAnimate?.forEach((el) => observerRef.current?.observe(el))
 
-    return () => observerRef.current?.disconnect()
+    // Add touch support for mobile devices
+    const cards = sectionRef.current?.querySelectorAll('.highlight-card')
+    cards?.forEach(card => {
+      card.addEventListener('touchstart', () => {
+        card.classList.add('touch-active')
+      }, { passive: true })
+      
+      card.addEventListener('touchend', () => {
+        setTimeout(() => {
+          card.classList.remove('touch-active')
+        }, 200)
+      }, { passive: true })
+    })
+
+    return () => {
+      observerRef.current?.disconnect()
+      cards?.forEach(card => {
+        card.removeEventListener('touchstart', () => {})
+        card.removeEventListener('touchend', () => {})
+      })
+    }
   }, [])
 
   return (
