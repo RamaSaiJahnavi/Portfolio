@@ -6,12 +6,22 @@ function About() {
   const observerRef = useRef(null)
 
   useEffect(() => {
-    // Intersection Observer for entrance animations
+    // Intersection Observer for entrance animations - triggers every time
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in')
+            // Remove the class first to re-trigger animation
+            entry.target.classList.remove('animate-in')
+            // Force reflow
+            void entry.target.offsetWidth
+            // Add the class to trigger animation
+            setTimeout(() => {
+              entry.target.classList.add('animate-in')
+            }, 50)
+          } else {
+            // Remove animation when out of view
+            entry.target.classList.remove('animate-in')
           }
         })
       },

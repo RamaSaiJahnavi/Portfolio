@@ -91,7 +91,7 @@
 .about h2 {
   text-align: center;
   font-size: 3rem;
-  color: #FFFFFF;
+  color: #FFFFFF; /* White text like Skills */
   margin-bottom: 3rem;
   font-weight: 900;
   letter-spacing: 3px;
@@ -101,19 +101,26 @@
   z-index: 1;
 }
 
+/* Underline for About Me heading - similar to Skills */
+.about h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #A68B7C, transparent);
+  border-radius: 2px;
+}
+
 /* Gradient Text Effect for Heading */
 .about-heading {
-  background: linear-gradient(135deg, #A68B7C 0%, #C9A86C 50%, #A68B7C 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 4s ease-in-out infinite;
+  animation: none; /* Remove gradient shift animation */
 }
 
 .about-heading.animate-in {
-  animation: slideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-             gradientShift 4s ease-in-out infinite;
+  animation: slideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
   transform: translateY(-30px);
 }
@@ -396,6 +403,12 @@
     margin-bottom: 2.5rem;
   }
   
+  .about h2::after {
+    width: 70px;
+    height: 3px;
+    bottom: -8px;
+  }
+  
   .about-intro {
     font-size: 1rem;
     padding: 1.5rem 1.75rem;
@@ -446,7 +459,7 @@
   
   /* Significantly reduce animation intensity on mobile */
   .about-heading {
-    animation: gradientShift 8s ease-in-out infinite; /* Much slower */
+    animation: none; /* No gradient animation - white text */
   }
   
   .intro-shimmer {
@@ -457,6 +470,12 @@
     font-size: clamp(1.75rem, 5vw, 2rem); /* Minimum 28px on 320px screen */
     letter-spacing: 1.5px;
     margin-bottom: 1.75rem;
+  }
+  
+  .about h2::after {
+    width: 60px;
+    height: 3px;
+    bottom: -6px;
   }
   
   .about-content {
@@ -550,12 +569,18 @@
   
   /* Further reduce animations on very small screens */
   .about-heading {
-    animation-duration: 10s; /* Even slower */
+    animation: none; /* No gradient animation - white text */
   }
   
   .about h2 {
     font-size: 1.6rem; /* ~28px equivalent */
     margin-bottom: 1.75rem;
+  }
+  
+  .about h2::after {
+    width: 50px;
+    height: 2px;
+    bottom: -5px;
   }
   
   .about-intro {
