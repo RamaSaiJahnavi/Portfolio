@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import '../styles/Hero.css'
-import profilePhoto from '/src/assets/profile-photo.jpg'
+import profilePhoto from '../assets/profile-photo.jpg'
 
 function Hero() {
   const heroRef = useRef(null)
-  const profileRef = useRef(null)
   const spotlightRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [profileTransform, setProfileTransform] = useState({ rotateX: 0, rotateY: 0 })
   const [buttonTransform, setButtonTransform] = useState({ x: 0, y: 0 })
   const buttonRef = useRef(null)
 
@@ -62,30 +59,14 @@ function Hero() {
     if (!heroRef.current || !spotlightRef.current) return
     
     const rect = heroRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    setMousePosition({ x, y })
-    spotlightRef.current.style.left = `${x}px`
-    spotlightRef.current.style.top = `${y}px`
-  }, [])
-
-  // 3D Tilt effect for profile image
-  const handleProfileMouseMove = useCallback((e) => {
-    if (!profileRef.current) return
-    
-    const rect = profileRef.current.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
     
-    const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * 8
-    const rotateX = ((centerY - e.clientY) / (rect.height / 2)) * 8
-    
-    setProfileTransform({ rotateX, rotateY })
-  }, [])
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
 
-  const handleProfileMouseLeave = useCallback(() => {
-    setProfileTransform({ rotateX: 0, rotateY: 0 })
+    spotlightRef.current.style.left = `${x}px`
+    spotlightRef.current.style.top = `${y}px`
   }, [])
 
   // Magnetic button effect
@@ -185,30 +166,17 @@ function Hero() {
           </button>
         </div>
 
-        {/* Profile Image with 3D Tilt */}
         <div className="hero-right">
-          <div 
-            className="profile-container"
-            ref={profileRef}
-            onMouseMove={handleProfileMouseMove}
-            onMouseLeave={handleProfileMouseLeave}
-            style={{
-              transform: `perspective(1000px) rotateX(${profileTransform.rotateX}deg) rotateY(${profileTransform.rotateY}deg)`
-            }}
-          >
+          <div className="profile-container">
             <div className="profile-border" />
-            <div className="profile-border-inner" />
-            <img 
-              src={profilePhoto} 
-              alt="Pottapogula Rama Sai Jahnavi - Aspiring Software Engineer" 
-              className="profile-photo"
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'flex'
-              }}
-            />
-            <div className="profile-photo-placeholder" style={{display: 'none'}}>
-              <span>Add your photo here</span>
+            <div className="profile-border-inner">
+              <div className="profile-photo-frame">
+                <img
+                  src={profilePhoto}
+                  alt="Rama Sai Jahnavi"
+                  className="profile-photo"
+                />
+              </div>
             </div>
           </div>
         </div>

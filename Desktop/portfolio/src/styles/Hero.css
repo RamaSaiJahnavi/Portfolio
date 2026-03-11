@@ -230,61 +230,36 @@
 /* ---- Profile Image: 3D Tilt + Rotating Border ---- */
 .profile-container {
   position: relative;
-  width: 320px;
-  height: 400px;
+  width: 300px;
+  height: 360px;
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
   margin: 8px;
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    rgba(60, 60, 60, 0.95) 0%,
-    rgba(46, 37, 26, 0.98) 35%,
-    rgba(69, 12, 28, 0.95) 70%,
-    rgba(74, 7, 84, 0.9) 100%
-  );
-}
-
-.profile-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(166, 139, 124, 0.2),
-      transparent 50%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(46, 37, 26, 0.25) 0%,
-      rgba(69, 12, 28, 0.25) 50%,
-      rgba(74, 7, 84, 0.2) 100%
-    );
-  mix-blend-mode: soft-light;
-  pointer-events: none;
+  background: transparent;              /* let hero gradient show through */
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 26px rgba(0, 0, 0, 0.45);
 }
 
 .profile-border {
   position: absolute;
   inset: -6px;
-  border-radius: 18px;
+  border-radius: 24px;
   background: conic-gradient(
     from 0deg,
-    #3C3C3C,
-    #2E251A,
-    #450C1C,
-    #4A0754,
-    #5D1A2E,
-    #4A0754,
-    #450C1C,
-    #2E251A,
-    #3C3C3C
+    rgba(166, 139, 124, 0.25),
+    rgba(120, 95, 92, 0.15),
+    rgba(135, 90, 115, 0.2),
+    rgba(166, 139, 124, 0.3),
+    rgba(120, 95, 92, 0.15),
+    rgba(135, 90, 115, 0.2),
+    rgba(166, 139, 124, 0.25)
   );
   animation: rotateBorder 20s linear infinite;
   z-index: -1;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 @keyframes rotateBorder {
@@ -293,10 +268,37 @@
 
 .profile-border-inner {
   position: absolute;
-  inset: -2px;
-  border-radius: 14px;
+  inset: 6px;
+  border-radius: 20px;
   background: transparent;
-  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.profile-photo-frame {
+  position: relative;
+  width: 88%;
+  height: 88%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.65),
+    0 0 18px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.profile-container:hover .profile-photo-frame {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.85),
+    0 0 26px rgba(166, 139, 124, 0.45);
 }
 
 .profile-photo {
@@ -304,34 +306,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 12px;
+  border-radius: inherit;
   opacity: 0;
   transform: translateX(60px);
   transition: all 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
-  border: 2px solid rgba(166, 139, 124, 0.3);
-  max-width: 100%;
-  filter: saturate(0.9) contrast(1.05) brightness(0.95);
-}
-
-@media (max-width: 480px) {
-  .profile-container {
-    width: 180px;
-    height: 230px;
-  }
-  
-  .profile-photo {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
-  }
-}
-
-@media (max-width: 360px) {
-  .profile-container {
-    width: 160px;
-    height: 200px;
-  }
+  filter: saturate(1.05) contrast(1.05) brightness(1.05);
 }
 
 .hero.animate-in .profile-photo {
@@ -343,6 +322,21 @@
 @keyframes minimalFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+
+/* Mobile keep proportions (no height:auto) */
+@media (max-width: 480px) {
+  .profile-container {
+    width: 190px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-container {
+    width: 170px;
+    height: 220px;
+  }
 }
 
 /* ---- Contact Info ---- */
