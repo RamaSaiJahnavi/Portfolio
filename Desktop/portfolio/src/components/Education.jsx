@@ -4,6 +4,7 @@ import '../styles/Education.css'
 function Education() {
   const sectionRef = useRef(null)
   const [titleVisible, setTitleVisible] = useState(false)
+  const cardRefs = useRef([])
   
   const education = [
     {
@@ -17,7 +18,7 @@ function Education() {
       institution: 'Sri Chaitanya',
       location: 'Vishakhapatnam, Andhra Pradesh',
       degree: 'Intermediate',
-      details: 'CGPA: 8.2',
+      details: 'CGPA: 9.0',
       duration: 'Jun\'21 – Jul\'23'
     },
     {
@@ -52,6 +53,31 @@ function Education() {
     
     return () => observer.disconnect()
   }, [])
+  
+  // Viewport-based animation for education cards (slide up on scroll)
+  useEffect(() => {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          } else {
+            entry.target.classList.remove('visible')
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    )
+    
+    cardRefs.current.forEach((card) => {
+      if (card) cardObserver.observe(card)
+    })
+    
+    return () => cardObserver.disconnect()
+  }, [education])
 
   return (
     <div className="education" ref={sectionRef}>
@@ -63,8 +89,12 @@ function Education() {
       </div>
       <div className="education-timeline">
         {education.map((edu, index) => (
-          <div key={index} className="education-card">
-            <div className="education-header">
+          <div 
+            key={index} 
+            className="education-card slide-up"
+            ref={(el) => (cardRefs.current[index] = el)}
+          >
+            <div className="education-card-header">
               <h3>{edu.institution}</h3>
               <span className="education-location">{edu.location}</span>
             </div>

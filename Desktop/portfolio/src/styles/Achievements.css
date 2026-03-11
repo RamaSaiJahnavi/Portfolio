@@ -1,6 +1,7 @@
 .achievements {
   padding: 4rem 2rem;
   background: transparent;
+  position: relative;
 }
 
 /* Achievements Header with Sliding Underline */
@@ -48,45 +49,165 @@
   width: 100%;
 }
 
+/* Achievements Grid */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
+/* Achievement Card - Premium Glassmorphism */
 .achievement-card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1.5rem;
-  border-radius: 12px;
-  border-left: 4px solid rgba(166, 139, 124, 0.6);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
 }
 
+/* Gradient Border Effect */
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(201, 168, 108, 0.3), transparent, rgba(201, 168, 108, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Hover Effects */
 .achievement-card:hover {
-  transform: translateX(5px);
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(201, 168, 108, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(201, 168, 108, 0.15);
+}
+
+/* Slide-in Animations */
+.achievement-card.slide-left {
+  transform: translateX(-50px);
+}
+
+.achievement-card.slide-right {
+  transform: translateX(50px);
+}
+
+.achievement-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.achievement-card.visible.slide-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.achievement-card.visible.slide-right {
+  animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Achievement Content */
+.achievement-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.achievement-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 8px rgba(201, 168, 108, 0.5))
+          drop-shadow(0 0 15px rgba(201, 168, 108, 0.3));
+  animation: iconGlow 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.achievement-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes iconGlow {
+  0%, 100% {
+    filter: drop-shadow(0 2px 8px rgba(201, 168, 108, 0.5))
+            drop-shadow(0 0 15px rgba(201, 168, 108, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 4px 12px rgba(201, 168, 108, 0.7))
+            drop-shadow(0 0 25px rgba(201, 168, 108, 0.5));
+  }
 }
 
 .achievement-card h3 {
-  color: #a68b7c;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 800;
+  color: #f5f0f5;
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.4;
+  flex: 1;
 }
 
 .achievement-desc {
-  color: #E5E7EB;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-  font-weight: 500;
+  color: rgba(229, 231, 235, 0.9);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 0.95rem;
 }
 
 .achievement-date {
-  color: #a68b7c;
+  display: inline-block;
+  color: #c9a86c;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  background: rgba(201, 168, 108, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(201, 168, 108, 0.2);
+  align-self: flex-start;
+  margin-top: 0.25rem;
 }
 
 /* ---- Responsive Design ---- */
@@ -97,7 +218,6 @@
   
   .achievements h2 {
     font-size: 2.4rem;
-    margin-bottom: 2.5rem;
   }
   
   .achievements-grid {
@@ -106,7 +226,7 @@
   }
   
   .achievement-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 }
 
@@ -118,16 +238,20 @@
   .achievements h2 {
     font-size: 2rem;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
   }
   
   .achievements-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
+    gap: 1.25rem;
   }
   
   .achievement-card {
-    padding: 1.1rem 1.25rem;
+    padding: 1.25rem;
+  }
+  
+  .achievement-icon {
+    font-size: 1.3rem;
   }
   
   .achievement-card h3 {
@@ -135,46 +259,54 @@
   }
   
   .achievement-desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   .achievement-date {
     font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
   }
 }
 
 @media (max-width: 480px) {
   .achievements {
-    padding: 2.5rem 0.8rem; /* Reduced from 4rem */
+    padding: 2.5rem 0.8rem;
   }
   
   .achievements h2 {
     font-size: clamp(1.6rem, 4vw, 1.8rem);
     letter-spacing: 1.5px;
-    margin-bottom: 2rem;
-    text-align: center;
   }
   
-  .achievements-list {
-    gap: 1.25rem;
+  .achievements-grid {
+    gap: 1rem;
   }
   
   .achievement-card {
-    padding: 1.25rem 1rem; /* Proper 16px side padding */
-    border-left-width: 3px;
+    padding: 1.125rem;
+  }
+  
+  .achievement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .achievement-icon {
+    font-size: 1.2rem;
   }
   
   .achievement-card h3 {
-    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Minimum 16px equivalent */
-    margin: 0 0 0.5rem 0;
+    font-size: clamp(1rem, 2.5vw, 1.05rem);
   }
   
   .achievement-desc {
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
   }
   
   .achievement-date {
     font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
@@ -185,11 +317,10 @@
   
   .achievements h2 {
     font-size: 1.45rem;
-    margin-bottom: 1.75rem;
   }
   
   .achievement-card {
-    padding: 1rem 0.9rem;
+    padding: 1rem;
   }
   
   .achievement-card h3 {
@@ -198,5 +329,9 @@
   
   .achievement-desc {
     font-size: 0.85rem;
+  }
+  
+  .achievement-date {
+    font-size: 0.75rem;
   }
 }
