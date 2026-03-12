@@ -99,7 +99,7 @@ function Achievements() {
     {
       title: 'Scored 96 Percentile in JEE Main',
       description: 'Achieved 96 percentile in JEE Main examination, demonstrating strong analytical skills.',
-      date: 'Jan \'22',
+      date: 'Jan \'23',
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="10" stroke="url(#targetGradient)" strokeWidth="2"/>

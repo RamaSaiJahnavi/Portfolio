@@ -87,14 +87,6 @@ function Hero() {
     setButtonTransform({ x: 0, y: 0 })
   }, [])
 
-  // Smooth scroll to next section
-  const scrollToNext = () => {
-    const skillsSection = document.getElementById('skills')
-    if (skillsSection) {
-      skillsSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <div 
       className={`hero ${isVisible ? 'animate-in' : ''}`} 
@@ -152,10 +144,12 @@ function Hero() {
           </div>
 
           {/* Magnetic CTA Button */}
-          <button 
+          <a 
             ref={buttonRef}
             className="magnetic-btn"
-            onClick={scrollToNext}
+            href="https://drive.google.com/file/d/1AnRqrrC5ZpI4D2lCHPnjwJoKDHTU2M0A/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseMove={handleButtonMouseMove}
             onMouseLeave={handleButtonMouseLeave}
             style={{
@@ -163,7 +157,7 @@ function Hero() {
             }}
           >
             View My Work
-          </button>
+          </a>
         </div>
 
         <div className="hero-right">
