@@ -69,7 +69,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
       description: 'Full-stack employee management solution with CRUD operations, role-based access control, and real-time data handling.',
       tools: ['Spring Boot', 'MySQL', 'Spring Security', 'Thymeleaf', 'Bootstrap'],
-      link: 'https://employee-management-system-one-coral.vercel.app/'
+      link: 'https://employee-management-system-frontend-production.up.railway.app/'
     },
     {
       id: 6,
