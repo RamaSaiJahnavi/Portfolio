@@ -21,7 +21,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80',
       description: 'A secure metro ticketing platform with JWT authentication, route optimization using graph algorithms, and QR-enabled digital booking.',
       tools: ['Spring Boot', 'MySQL', 'JWT', 'REST API', 'React'],
-      link: 'https://metro-service-booking-j8gg.vercel.app/login'
+      link: 'https://metro-booking-frontend-production-92f1.up.railway.app/'
     },
     {
       id: 2,
