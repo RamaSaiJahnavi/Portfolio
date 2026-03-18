@@ -45,7 +45,7 @@ function Projects() {
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
       description: 'ML-based health prediction system using multiple algorithms for BMI and stress analysis with clustering techniques.',
       tools: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib'],
-      link: 'https://drive.google.com/file/d/14uNGYTTWWWQ3VuDUQExgu4K-l4IOMROT/view?usp=sharing'
+      link: 'https://drive.google.com/file/d/1R0BmFD7r0SX3rVFBKCkINe9dEnhsi7QL/view?usp=sharing'
     },
     {
       id: 4,
