@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import '../styles/Hero.css'
-import profilePhoto from '../assets/profile-photo.jpg'
+import profilePhoto from '../assets/profile-photo.png'
 
 function Hero() {
   const heroRef = useRef(null)
