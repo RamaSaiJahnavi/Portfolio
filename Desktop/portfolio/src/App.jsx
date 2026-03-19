@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './styles/App.css'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -15,6 +15,73 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const cursorRef = useRef(null)
+  const cursorRingRef = useRef(null)
+
+  useEffect(() => {
+    const finePointer = window.matchMedia('(pointer: fine)').matches
+    if (!finePointer) {
+      return undefined
+    }
+
+    const cursor = cursorRef.current
+    const ring = cursorRingRef.current
+    if (!cursor || !ring) {
+      return undefined
+    }
+
+    document.body.classList.add('premium-cursor')
+
+    let mouseX = window.innerWidth / 2
+    let mouseY = window.innerHeight / 2
+    let ringX = mouseX
+    let ringY = mouseY
+    let rafId = null
+
+    const updateRing = () => {
+      ringX += (mouseX - ringX) * 0.12
+      ringY += (mouseY - ringY) * 0.12
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`
+      rafId = requestAnimationFrame(updateRing)
+    }
+
+    const handlePointerMove = (event) => {
+      mouseX = event.clientX
+      mouseY = event.clientY
+      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateRing)
+      }
+    }
+
+    const nativeSelector = 'input, textarea, [contenteditable="true"]'
+    const handlePointerOver = (event) => {
+      if (event.target.closest(nativeSelector)) {
+        document.body.classList.add('native-cursor')
+      }
+    }
+
+    const handlePointerOut = (event) => {
+      if (event.target.closest(nativeSelector)) {
+        document.body.classList.remove('native-cursor')
+      }
+    }
+
+    window.addEventListener('pointermove', handlePointerMove)
+    document.addEventListener('pointerover', handlePointerOver)
+    document.addEventListener('pointerout', handlePointerOut)
+
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      document.removeEventListener('pointerover', handlePointerOver)
+      document.removeEventListener('pointerout', handlePointerOut)
+      document.body.classList.remove('premium-cursor')
+      document.body.classList.remove('native-cursor')
+      if (rafId) {
+        cancelAnimationFrame(rafId)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,6 +179,8 @@ function App() {
 
   return (
     <div className="app">
+      <div ref={cursorRingRef} className="premium-cursor-ring" aria-hidden="true"></div>
+      <div ref={cursorRef} className="premium-cursor-dot" aria-hidden="true"></div>
       {/* Overlay for mobile menu */}
       <div 
         className={`nav-overlay ${isMobileMenuOpen ? 'active' : ''}`}
